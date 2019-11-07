@@ -15,7 +15,6 @@ import lombok.extern.log4j.Log4j;
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
 @Log4j
 public class CookTest {
-	
 	@Setter(onMethod_ = {@Autowired})
 	private Restaurant restaurnat;
 	
@@ -24,6 +23,8 @@ public class CookTest {
 		assertNotNull(restaurnat);
 		log.info(restaurnat);
 		log.info(restaurnat.getChef());
-	}
 
+	}
+		
+   
 }
