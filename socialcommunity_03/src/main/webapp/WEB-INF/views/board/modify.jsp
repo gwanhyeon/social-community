@@ -16,7 +16,7 @@
 <div class="row">
 	<div class="col-lg-12">
 		<div class="panel panel-default">
-			<div class="panel-heading">Board Read Page</div>
+			<div class="panel-heading">Board Modify Page</div>
 
 			<!-- /.panel-heading -->
 			<div class="panel-body">
@@ -24,6 +24,10 @@
 				
 				
 			<form action="/board/modify" role="form" method="post">
+			
+					<!--  추가해주기 -->
+					<input type="hidden" name="pageNum" value='<c:out value="${cri.pageNum}"/>'>
+					<input type="hidden" name="amount" value='<c:out value="${cri.amount}"/>'>
 				
 					<div class="form-group">
 					  <label>Bno</label> 
@@ -77,7 +81,7 @@
 					 
 					 </button>
 					 	<button
-					 data-oper="list"
+					 data-oper='list'
 					 type="submit"
 					 class="btn btn-info">
 					 List
@@ -126,17 +130,23 @@ $(document).ready(function() {
 	      formObj.attr("action", "/board/remove");
 	      
 	    }else if(operation === 'list'){
-	    	self.location="/board/list";
-	    	return;
+	    	
+/* 	    	self.location="/board/list";
+	    	return; */
 	      //move to list
-	      //formObj.attr("action", "/board/list").attr("method","get");
+	      formObj.attr("action", "/board/list").attr("method","get");
 	      
 	/*       var pageNumTag = $("input[name='pageNum']").clone();
 	      var amountTag = $("input[name='amount']").clone();
 	      var keywordTag = $("input[name='keyword']").clone();
 	      var typeTag = $("input[name='type']").clone();       */
+	      var pageNumTag = $("input[name='pageNum']").clone();
+	      var amountTag = $("input[name='amount']").clone();
+	      formObj.empty();
+	      formObj.append(pageNumTag);
+	      formObj.append(amountTag);
+	    console.log("Modify List Call JS")
 	      
-	      //formObj.empty();
 	      
 	/*       formObj.append(pageNumTag);
 	      formObj.append(amountTag);

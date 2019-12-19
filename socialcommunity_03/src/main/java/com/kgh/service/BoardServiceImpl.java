@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kgh.domain.BoardVO;
+import com.kgh.domain.Criteria;
 import com.kgh.mapper.BoardMapper;
 
 import lombok.AllArgsConstructor;
@@ -20,7 +21,13 @@ public class BoardServiceImpl implements BoardService{
 	private BoardMapper mapper;
 	
 	
-	
+	@Override
+
+	public int getTotal(Criteria cri) {
+		// TODO Auto-generated method stub
+		log.info("get total count");
+		return mapper.getTotalCount(cri);
+	}
 	@Override
 	public void register(BoardVO board) {
 		// TODO Auto-generated method stub
@@ -56,12 +63,17 @@ public class BoardServiceImpl implements BoardService{
 		
 	}
 
+//	@Override
+//	public List<BoardVO> getList() {
+//		// TODO Auto-generated method stub
+//		log.info("getList....");
+//		
+//		return mapper.getList();
+//	}
 	@Override
-	public List<BoardVO> getList() {
-		// TODO Auto-generated method stub
-		log.info("getList....");
-		
-		return mapper.getList();
+	public List<BoardVO> getList(Criteria cri){
+		log.info("get list with criteria " + cri);
+		return mapper.getListWithPaging(cri);
 	}
 
 }
