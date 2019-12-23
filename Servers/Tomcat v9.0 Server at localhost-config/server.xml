@@ -151,7 +151,9 @@
 <!--<Context docBase="socialcommunity_01" path="/controller" reloadable="true" source="org.eclipse.jst.jee.server:socialcommunity_01"/>  -->
       <!-- <Context docBase="socialcommunity_j01" path="/controller" reloadable="true" source="org.eclipse.jst.jee.server:socialcommunity_j01"/> -->
       <!--  <Context docBase="socialcommunity_02" path="/" reloadable="true" source="org.eclipse.jst.jee.server:socialcommunity_02"/> -->
-      <Context docBase="socialcommunity_03" path="/" reloadable="true" source="org.eclipse.jst.jee.server:socialcommunity_03"/></Host>
+       <Context docBase="socialcommunity_03" path="/" reloadable="true" source="org.eclipse.jst.jee.server:socialcommunity_03"/> 
+      <!--  <Context docBase="socialcommunity_r03" path="/" reloadable="true" source="org.eclipse.jst.jee.server:socialcommunity_r03"/>
+      --></Host>
     </Engine>
   </Service>
 </Server>

@@ -27,5 +27,6 @@ public class PageDTO {
 		}
 		this.prev = this.startPage > 1;
 		this.next = this.endPage < realEnd;
+		System.out.println("#PageDTO.java");
 	}
 }

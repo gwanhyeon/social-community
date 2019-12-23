@@ -22,16 +22,15 @@ public class BoardServiceImpl implements BoardService{
 	
 	
 	@Override
-
 	public int getTotal(Criteria cri) {
 		// TODO Auto-generated method stub
-		log.info("get total count");
+		log.info("#get total count");
 		return mapper.getTotalCount(cri);
 	}
 	@Override
 	public void register(BoardVO board) {
 		// TODO Auto-generated method stub
-		log.info("Register ..." + board);
+		log.info("#Register ..." + board);
 		mapper.insertSelectKey(board);
 		
 		
@@ -40,7 +39,7 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public BoardVO get(Long bno) {
 		// TODO Auto-generated method stub
-		log.info("get .... " + bno);
+		log.info("#get .... " + bno);
 		
 		return mapper.read(bno);
 		
@@ -49,7 +48,7 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public boolean modify(BoardVO board) {
 		// TODO Auto-generated method stub
-		log.info("modify ... " + board);
+		log.info("#modify ... " + board);
 		return mapper.update(board) == 1;
 	}
 
@@ -57,7 +56,7 @@ public class BoardServiceImpl implements BoardService{
 	public boolean remove(Long bno) {
 		// TODO Auto-generated method stub
 
-		log.info("remove...." + bno);
+		log.info("#remove...." + bno);
 
 		return mapper.delete(bno) == 1;
 		
@@ -72,7 +71,7 @@ public class BoardServiceImpl implements BoardService{
 //	}
 	@Override
 	public List<BoardVO> getList(Criteria cri){
-		log.info("get list with criteria " + cri);
+		log.info("#get list with criteria " + cri);
 		return mapper.getListWithPaging(cri);
 	}
 

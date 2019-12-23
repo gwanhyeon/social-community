@@ -19,7 +19,10 @@ public class Criteria {
 	
 	public Criteria() {
 		// TODO Auto-generated constructor stub
+		
 		this(1,10);
+		
+		System.out.println("#Crieria.java");
 	}
 	public Criteria(int pageNum,int amount) {
 		this.pageNum = pageNum;

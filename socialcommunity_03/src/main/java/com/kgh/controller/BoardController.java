@@ -33,11 +33,19 @@ public class BoardController {
 	public void list(Criteria cri, Model model) {
 		
 		log.info("list GetMapping" + cri);
+		System.out.println("#-=>"+cri +"$");
+		System.out.println("#0=>"+model +"$");
 		model.addAttribute("list",service.getList(cri));
 //		model.addAttribute("pageMaker",new PageDTO(cri,123));
 		int total = service.getTotal(cri);
 		log.info("total:"+total);
 		model.addAttribute("pageMaker",new PageDTO(cri,total));
+		System.out.println("#1=>"+cri);
+		System.out.println("#2=>"+service.getList(cri));
+		System.out.println("#3=>"+total);
+		System.out.println("#4=>"+model);
+		
+		
 		
 	}
 	@GetMapping("/register")
@@ -49,12 +57,16 @@ public class BoardController {
 		log.info("register : " + board);
 		service.register(board);
 		rttr.addFlashAttribute("result", board.getBno());
+		System.out.println("#BoardController.java post @/register");
 		return "redirect:/board/list";
 	}
+//	서 ${[NAME].property} 형태로 Model 객체의 값을 사용할 수 있게 된다.
+
 	@GetMapping({"/get","/modify"})
 	public void get(@RequestParam("bno") Long bno,@ModelAttribute("cri")Criteria cri, Model model) {
 		log.info("/get or modify");
 		model.addAttribute("board",service.get(bno));	
+		System.out.println("#BoardController.java get @/modify");
 	}
 	@PostMapping("/modify")
 	public String modify(BoardVO board, @ModelAttribute("cri") Criteria cri,RedirectAttributes rttr) {
@@ -67,7 +79,7 @@ public class BoardController {
 //		rttr.addAttribute("amount",cri.getAmount());
 //		rttr.addAttribute("type",cri.getType());
 //		rttr.addAttribute("keyword",cri.getKeyword());
-		
+		System.out.println("#BoardController.java post @/modify");
 		return "redirect:/board/list" + cri.getListLink();
 	}
 	@PostMapping("/remove")
@@ -80,6 +92,7 @@ public class BoardController {
 //		rttr.addAttribute("amount",cri.getAmount());
 //		rttr.addAttribute("type",cri.getType());
 //		rttr.addAttribute("keyword",cri.getKeyword());
+		System.out.println("# BoardController.java post @/remove");
 		return "redirect:/board/list" + cri.getListLink();
 	}
 }
