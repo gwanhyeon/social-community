@@ -5,6 +5,6 @@
 - jdk v1.8.0_161
 - STS v3.9.10
 - Tomcat v9.0.27
-- DB Mysql or Oracle
+- DB Oracle
 - MyBatis
 
